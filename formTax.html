@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+    <script src="js/jquery-1.11.1.js"></script>
+
+    <script>
+//<!--      formula to double an amount (c) by "x" times   (2^x)c  -->
+        $(function(){
+            console.log('inside document ready');
+            $('form').on('submit', function(event){
+                console.log('click happened');
+                var result = $('#startMoney').value()*( 2 ^ $('#countTimes').value());
+                console.log ('result = ' + result);
+            });
+        })
+    </script>
+    <style>
+        label {
+            display: block;
+        }
+        input {
+            display: inline-block;
+            /*float: right;*/
+        }
+    </style>
+</head>
+<body>
+
+<h2>Tax Deferral Example</h2>
+<form>
+
+    <!--
+
+    Use this example to create a form to allow people to enter the amount of money to use.
+    <p>
+        If you take a dollar and double it, you will have 2 dollars. If you do this 20 times, you will have $1,000,000.
+        Lets see how tax deferral can affect this exercise.
+    </p>
+    <ol>
+        <li>
+            Invest in a tax deferred strategy, and pay a 33% tax at the end.
+            That leaves $702,545.92.
+        </li>
+        <li>
+            we pay the 33% tax each time we double the money.  After doubling the original
+            dollar 20 times and paying taxes each time it doubles, there is only $28,466.20.
+        </li>
+      formula to double an amount (c) by "x" times   (2^x)c
+    -->
+
+    <label>Starting money to invest</label>
+        <input name="startMoney" type="number" value="1" />
+    <label>How many times the amount with double?</label>
+        <input name="countTimes" type="number" value="20" />
+    <label>Tax rate percent</label>
+        <input name="taxRate" value="33" />
+    <label>Result of doubled money</label>
+        <input name="resultDouble" />
+    <label>Minus tax rate at end</label>
+        <input name="taxEnd" />
+    <label>Tax after each double</label>
+        <input name="taxEach" />
+
+    <button id="calc" type="submit" >Submit</button>
+
+
+</form>
+
+</body>
+</html>
